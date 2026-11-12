@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WebVista | Our Work</title>
+<meta name="description" content="WebVista designs and builds professional websites for Kenyan businesses. Browse our recent projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--black:#111;--char:#1c1c1c;--gold:#C9A45C;--ivory:#F7F2E8;--gray:#8d8a84}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,sans-serif;background:var(--black);color:var(--ivory);line-height:1.6}
+h1,h2{font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-.5px}
+h3{font-family:Montserrat,sans-serif}
+body{font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+nav{position:absolute;top:0;left:0;right:0;z-index:20;background:transparent}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:84px}
+.logo{font-family:Montserrat;font-weight:800;font-size:1.25rem;letter-spacing:.5px}
+.logo span{color:var(--gold)}
+.btn{display:inline-block;background:var(--gold);color:var(--black);font-family:Montserrat;font-weight:600;font-size:.9rem;padding:12px 24px;border-radius:50px;transition:.25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,164,92,.35)}
+.btn.ghost{background:none;color:var(--ivory);border:1px solid #444}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold);box-shadow:none}
+.hero{padding:170px 0 80px;text-align:center;background:radial-gradient(ellipse at top,#2a2418 0,var(--black) 65%)}
+.tag{display:inline-block;color:var(--gold);border:1px solid rgba(201,164,92,.4);padding:6px 16px;border-radius:50px;font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px}
+.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);line-height:1.1;font-weight:700;max-width:900px;margin:0 auto 20px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{color:#bdb8ad;max-width:600px;margin:0 auto 34px;font-size:1.05rem}
+.hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.stats{display:flex;justify-content:center;gap:48px;margin-top:64px;flex-wrap:wrap}
+.stats b{display:block;font-family:Montserrat;font-size:2rem;color:var(--gold)}
+.stats small{color:var(--gray);font-size:.85rem}
+section{padding:80px 0}
+.head{text-align:center;margin-bottom:48px}
+.head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:10px}
+.head p{color:var(--gray)}
+.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.filters button{background:none;border:1px solid #333;color:#bdb8ad;padding:8px 20px;border-radius:50px;cursor:pointer;font:500 .85rem Inter;transition:.2s}
+.filters button.on,.filters button:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(400px,1fr));gap:32px}
+.card{background:var(--char);border:1px solid #2a2a2a;border-radius:18px;overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);border-color:rgba(201,164,92,.5);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.card.hide{display:none}
+.bar{display:flex;align-items:center;gap:6px;padding:10px 14px;background:#161616;border-bottom:1px solid #2a2a2a}
+.bar i{width:9px;height:9px;border-radius:50%;background:#444}
+.bar i:nth-child(1){background:#ff5f57}.bar i:nth-child(2){background:#febc2e}.bar i:nth-child(3){background:#28c840}
+.bar span{margin-left:10px;font-size:.72rem;color:var(--gray);background:#0e0e0e;padding:3px 12px;border-radius:50px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:linear-gradient(135deg,#262626,#151515)}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity .6s,transform .6s}
+.card:hover .shot img{transform:scale(1.04)}
+.shot img.ok,.shot img{opacity:1}
+.legal{display:flex;gap:20px;justify-content:center;margin-top:8px}
+.legal a{color:var(--gold)}
+#modal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;padding:20px}
+#modal.open{display:flex}
+.mbox{background:var(--char);border:1px solid #333;border-radius:18px;max-width:720px;width:100%;max-height:85vh;overflow:auto;padding:36px;position:relative}
+.mbox h2{font-size:1.8rem;margin-bottom:14px}
+.mbox h3{font-size:1rem;color:var(--gold);margin:18px 0 6px}
+.mbox p,.mbox li{color:#bdb8ad;font-size:.93rem;margin-bottom:6px}
+.mbox ul{padding-left:20px}
+#mx{position:absolute;top:14px;right:18px;background:none;border:0;color:var(--ivory);font-size:1.8rem;cursor:pointer}
+#cookie{position:fixed;left:20px;right:20px;bottom:20px;max-width:560px;z-index:40;background:var(--char);border:1px solid #333;border-radius:16px;padding:20px;display:none;box-shadow:0 20px 50px rgba(0,0,0,.6)}
+#cookie.show{display:block}
+#cookie p{font-size:.88rem;color:#bdb8ad;margin-bottom:14px}
+#cookie p a{color:var(--gold);text-decoration:underline}
+#cookie div{display:flex;gap:10px}
+#cookie button{cursor:pointer;border:0;font:600 .85rem Montserrat;padding:10px 20px;border-radius:50px}
+#cookie .a{background:var(--gold);color:var(--black)}
+#cookie .d{background:none;color:var(--ivory);border:1px solid #444}
+.wa{bottom:90px}
+.shot iframe.ok{opacity:1}
+.shot .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:800 3rem Montserrat;color:rgba(201,164,92,.25)}
+.shot a{position:absolute;inset:0;z-index:2}
+.info{padding:22px;display:flex;flex-direction:column;flex:1}
+.info small{color:var(--gold);font-size:.75rem;letter-spacing:1.2px;text-transform:uppercase}
+.info h3{font-size:1.2rem;margin:4px 0 6px}
+.info p{color:#a9a49a;font-size:.92rem;flex:1;margin-bottom:18px}
+.info .go{color:var(--gold);font:600 .9rem Montserrat}
+.info .go:hover{text-decoration:underline}
+.svc{background:var(--char)}
+.svcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.svcs div{padding:28px;border:1px solid #2a2a2a;border-radius:16px;background:var(--black)}
+.svcs b{font-size:1.8rem;display:block;margin-bottom:8px}
+.svcs h3{font-size:1.05rem;margin-bottom:6px}
+.svcs p{color:var(--gray);font-size:.9rem}
+.contact{text-align:center;background:radial-gradient(ellipse at bottom,#2a2418 0,var(--black) 70%)}
+.contact h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:14px}
+.contact p{color:#bdb8ad;margin-bottom:32px}
+footer{text-align:center;padding:28px;color:var(--gray);font-size:.85rem;border-top:1px solid #222}
+.wa{position:fixed;right:20px;bottom:20px;z-index:30;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.reveal{opacity:0;transform:translateY(24px);transition:.7s}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.hero{padding:120px 0 60px}nav .btn{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+<a href="#" class="logo">Web<span>Vista</span></a>
+<a class="btn" href="https://wa.me/254782480369?text=Hello%20WebVista%2C%20I%27d%20like%20a%20quote%20for%20a%20website." target="_blank" rel="noopener">Request a Quote</a>
+</div></nav>
+ 
+<header class="hero"><div class="wrap">
+<span class="tag">Website Design &amp; Development · Kenya</span>
+<h1>Websites that make your business <em>look the part</em></h1>
+<p>We design fast, beautiful, mobile-friendly websites for hotels, restaurants, shops and growing brands across Kenya. Here is some of our recent work.</p>
+<div class="cta">
+<a class="btn" href="#work">View Our Work</a>
+<a class="btn ghost" href="https://wa.me/254782480369" target="_blank" rel="noopener">Chat on WhatsApp</a>
+</div>
+<div class="stats">
+<div><b>10+</b><small>Live Websites</small></div>
+<div><b>100%</b><small>Mobile Ready</small></div>
+<div><b>24/7</b><small>Online Presence</small></div>
+</div>
+</div></header>
+ 
+<section id="work"><div class="wrap">
+<div class="head"><h2>Selected Projects</h2><p>Live websites we have built. Click any project to visit it.</p></div>
+<div class="filters" id="filters">
+<button class="on" data-f="all">All</button>
+<button data-f="hospitality">Hospitality</button>
+<button data-f="food">Food &amp; Dining</button>
+<button data-f="retail">Retail &amp; Business</button>
+</div>
+<div class="grid" id="grid"></div>
+</div></section>
+ 
+<section class="svc"><div class="wrap">
+<div class="head"><h2>What We Deliver</h2><p>Everything your business needs to shine online</p></div>
+<div class="svcs">
+<div><b>🎨</b><h3>Custom Design</h3><p>Unique layouts that match your brand, not templates.</p></div>
+<div><b>📱</b><h3>Mobile First</h3><p>Looks perfect on every phone, tablet and desktop.</p></div>
+<div><b>💬</b><h3>WhatsApp Booking</h3><p>Customers reach you directly with one tap.</p></div>
+<div><b>🚀</b><h3>Fast Hosting</h3><p>Live, secure and quick to load from day one.</p></div>
+</div>
+</div></section>
+ 
+<section class="contact" id="contact"><div class="wrap">
+<h2>Ready for a website like these?</h2>
+<p>Tell us about your business and get a custom quote today.</p>
+<a class="btn" href="https://wa.me/254782480369?text=Hello%20WebVista%2C%20I%27d%20like%20a%20quote%20for%20a%20website." target="_blank" rel="noopener">WhatsApp 0782 480 369</a>
+</div></section>
+ 
+<footer>© <span id="y"></span> WebVista · Website Design &amp; Development, Kenya
+<div class="legal"><a href="#" data-doc="d-cookies">Cookies Policy</a><a href="#" data-doc="d-terms">Terms &amp; Conditions</a></div></footer>
+ 
+<div id="cookie"><p>We use only essential cookies and local storage to remember your choice and keep this site working. Read our <a href="#" data-doc="d-cookies">Cookies Policy</a>.</p>
+<div><button class="a" data-v="accepted">Accept</button><button class="d" data-v="declined">Decline</button></div></div>
+ 
+<div id="modal"><div class="mbox"><button id="mx" aria-label="Close">×</button><div id="mbody"></div></div></div>
+ 
+<template id="d-cookies"><h2>Cookies Policy</h2>
+<p>Last updated: November 2026</p>
+<h3>What are cookies?</h3><p>Cookies are small text files stored on your device when you visit a website. They help sites work properly and remember your choices.</p>
+<h3>How we use them</h3><ul><li>Essential storage to remember your cookie choice.</li><li>Previews of our projects are loaded from third-party screenshot services, which may set their own technical cookies.</li><li>We do not use advertising or tracking cookies.</li></ul>
+<h3>Managing cookies</h3><p>You can block or delete cookies in your browser settings. Some features may not work if you do.</p>
+<h3>Contact</h3><p>Questions? WhatsApp WebVista on 0782 480 369.</p></template>
+ 
+<template id="d-terms"><h2>Terms &amp; Conditions</h2>
+<p>Last updated: November 2026</p>
+<h3>1. About this site</h3><p>This website is operated by WebVista, a website design and development business in Kenya. By using it you agree to these terms.</p>
+<h3>2. Our work</h3><p>Projects shown are websites designed and built by WebVista for our clients. All trademarks, logos and content on those sites belong to their respective owners.</p>
+<h3>3. Quotes &amp; services</h3><p>Prices are not fixed and are given by quotation. A quote becomes binding only once agreed in writing (including by WhatsApp) by both parties.</p>
+<h3>4. Intellectual property</h3><p>The design, text and code of this site belong to WebVista. You may not copy or reuse them without permission.</p>
+<h3>5. External links</h3><p>We link to client websites we do not control and are not responsible for their content or availability.</p>
+<h3>6. Liability</h3><p>This site is provided as is. WebVista is not liable for losses arising from its use to the extent permitted by law.</p>
+<h3>7. Changes &amp; governing law</h3><p>We may update these terms at any time. They are governed by the laws of Kenya.</p>
+<h3>8. Contact</h3><p>WhatsApp 0782 480 369.</p></template>
+<a class="wa" href="https://wa.me/254782480369" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+ 
+<script>
+const projects=[
+{n:"Silverside Hotel",u:"silversidehotel.vercel.app",c:"hospitality",t:"Hotel",d:"Elegant hotel website with rooms, amenities and easy enquiries."},
+{n:"Eagles Point Camp",u:"eaglespointcamp.vercel.app",c:"hospitality",t:"Luxury Camp",d:"Luxury camp near Lake Elementaita with WhatsApp booking enquiries."},
+{n:"Swahili Food Seger",u:"swahilifoodseger.vercel.app",c:"food",t:"Restaurant",d:"Mouth-watering Swahili cuisine showcased with a vibrant menu."},
+{n:"Jamia Restaurant",u:"jamiaresturant.vercel.app",c:"food",t:"Restaurant",d:"A clean, appetising restaurant site built to bring in diners."},
+{n:"Kijani Kafe",u:"kijanikafe.vercel.app",c:"food",t:"Café",d:"A fresh, welcoming café website with a relaxed modern feel."},
+{n:"Azra Eateries",u:"azraheateries.vercel.app",c:"food",t:"Eatery",d:"Bold eatery website highlighting menu favourites and location."},
+{n:"Gate Supermarket",u:"gatesupermarket.vercel.app",c:"retail",t:"Supermarket",d:"Easy-to-browse supermarket site for everyday shoppers."},
+{n:"Lumi Homes",u:"lumihomes.vercel.app",c:"retail",t:"Home & Living",d:"Stylish home products presented in a clean, modern layout."},
+{n:"Joytech Solutions",u:"joytechsolutions.vercel.app",c:"retail",t:"Tech Business",d:"Professional corporate site for a technology solutions company."},
+{n:"Dunlop Investments",u:"dunlopinvestments.vercel.app",c:"retail",t:"Sports Shop",d:"E-commerce site for a Kisumu sports goods shop."}
+];
+const grid=document.getElementById('grid');
+grid.innerHTML=projects.map(p=>`
+<article class="card reveal" data-c="${p.c}">
+<div class="bar"><i></i><i></i><i></i><span>${p.u}</span></div>
+<div class="shot"><div class="ph">${p.n[0]}</div>
+<img data-u="${p.u}" alt="${p.n} website screenshot" loading="lazy">
+<a href="https://${p.u}" target="_blank" rel="noopener" aria-label="Visit ${p.n}"></a></div>
+<div class="info"><small>${p.t}</small><h3>${p.n}</h3><p>${p.d}</p>
+<a class="go" href="https://${p.u}" target="_blank" rel="noopener">Visit Website →</a></div>
+</article>`).join('');
+ 
+// lazy-load live previews
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+ if(!e.isIntersecting)return;
+ const f=e.target.querySelector('img');
+ if(f&&!f.src){
+  const u=f.dataset.u;
+  f.onload=()=>f.classList.add('ok');
+  f.onerror=()=>{f.onerror=()=>{};f.src='https://s.wordpress.com/mshots/v1/'+encodeURIComponent('https://'+u)+'?w=1200&h=750'};
+  f.src='https://image.thum.io/get/width/1200/crop/750/noanimate/https://'+u;
+ }
+ e.target.classList.add('in');io.unobserve(e.target)
+}),{rootMargin:'150px'});
+document.querySelectorAll('.card').forEach(c=>io.observe(c));
+ 
+document.getElementById('filters').onclick=e=>{
+ const b=e.target.closest('button');if(!b)return;
+ document.querySelectorAll('.filters button').forEach(x=>x.classList.toggle('on',x===b));
+ document.querySelectorAll('.card').forEach(c=>c.classList.toggle('hide',b.dataset.f!=='all'&&c.dataset.c!==b.dataset.f));
+};
+const modal=document.getElementById('modal');
+document.querySelectorAll('[data-doc]').forEach(a=>a.onclick=e=>{e.preventDefault();
+ const m=document.getElementById('mbody');m.innerHTML='';m.appendChild(document.getElementById(a.dataset.doc).content.cloneNode(true));modal.classList.add('open')});
+modal.onclick=e=>{if(e.target===modal||e.target.id==='mx')modal.classList.remove('open')};
+const cb=document.getElementById('cookie');let ck=null;
+try{ck=localStorage.getItem('wv_cookies')}catch(e){}
+if(!ck)cb.classList.add('show');
+cb.querySelectorAll('button').forEach(b=>b.onclick=()=>{try{localStorage.setItem('wv_cookies',b.dataset.v)}catch(e){}cb.classList.remove('show')});
+document.getElementById('y').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
