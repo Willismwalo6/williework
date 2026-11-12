@@ -112,7 +112,7 @@ footer{text-align:center;padding:28px;color:var(--gray);font-size:.85rem;border-
 <a class="btn ghost" href="https://wa.me/254782480369" target="_blank" rel="noopener">Chat on WhatsApp</a>
 </div>
 <div class="stats">
-<div><b>10+</b><small>Live Websites</small></div>
+<div><b>11</b><small>Live Websites</small></div>
 <div><b>100%</b><small>Mobile Ready</small></div>
 <div><b>24/7</b><small>Online Presence</small></div>
 </div>
@@ -183,6 +183,7 @@ const projects=[
 {n:"Gate Supermarket",u:"gatesupermarket.vercel.app",c:"retail",t:"Supermarket",d:"Easy-to-browse supermarket site for everyday shoppers."},
 {n:"Lumi Homes",u:"lumihomes.vercel.app",c:"retail",t:"Home & Living",d:"Stylish home products presented in a clean, modern layout."},
 {n:"Joytech Solutions",u:"joytechsolutions.vercel.app",c:"retail",t:"Tech Business",d:"Professional corporate site for a technology solutions company."},
+{n:"Impact for Justice",u:"impactforjustive.vercel.app",c:"retail",t:"Organisation",d:"Clean, credible website for a justice-focused organisation."},
 {n:"Dunlop Investments",u:"dunlopinvestments.vercel.app",c:"retail",t:"Sports Shop",d:"E-commerce site for a Kisumu sports goods shop."}
 ];
 const grid=document.getElementById('grid');
@@ -203,8 +204,12 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{
  if(f&&!f.src){
   const u=f.dataset.u;
   f.onload=()=>f.classList.add('ok');
-  f.onerror=()=>{f.onerror=()=>{};f.src='https://s.wordpress.com/mshots/v1/'+encodeURIComponent('https://'+u)+'?w=1200&h=750'};
-  f.src='https://image.thum.io/get/width/1200/crop/750/noanimate/https://'+u;
+  const full='https://'+u,srcs=[
+   'https://api.microlink.io/?url='+encodeURIComponent(full)+'&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=800',
+   'https://image.thum.io/get/width/1200/crop/750/noanimate/'+full,
+   'https://s.wordpress.com/mshots/v1/'+encodeURIComponent(full)+'?w=1200&h=750'];
+  let i=0;f.onerror=()=>{if(++i<srcs.length)f.src=srcs[i];else f.style.display='none'};
+  f.src=srcs[0];
  }
  e.target.classList.add('in');io.unobserve(e.target)
 }),{rootMargin:'150px'});
